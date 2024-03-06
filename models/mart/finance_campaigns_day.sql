@@ -1,10 +1,10 @@
 SELECT 
   date_date,
-  operational_margin - ads_cost AS ads_margin,
+  ROUND(operational_margin - ads_cost ,2) AS ads_margin,
   ROUND(average_basket,2) AS average_basket,
   operational_margin,
   ads_cost,
-  ads_impressionn,
+  ads_impression,
   ads_clicks,
   quantity,
   revenue,
