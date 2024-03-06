@@ -1,19 +1,19 @@
 SELECT 
   date_date,
-  ROUND(f.operational_margin - c.ads_cost )AS ads_margin,
-  ROUND(f.average_basket,2) AS average_basket,
-  f.operational_margin,
-  c.ads_cost,
-  c.ads_impressionn,
-  c.ads_clicks,
-  c.quantity,
-  c.revenue,
-  c.purchase_cost,
-  c.margin,
-  c.shipping_fee,
-  c.logcost,
-  c.ship_cost
-FROM {{ ref('int_campaigns_day') }} c
-FULL OUTER JOIN {{ ref('finance_days') }} f
+  operational_margin - ads_cost AS ads_margin,
+  ROUND(average_basket,2) AS average_basket,
+  operational_margin,
+  ads_cost,
+  ads_impressionn,
+  ads_clicks,
+  quantity,
+  revenue,
+  purchase_cost,
+  margin,
+  shipping_fee,
+  logcost,
+  ship_cost
+FROM {{ ref('int_campaigns_day') }}
+FULL OUTER JOIN {{ ref('finance_days') }} 
   USING (date_date)
 ORDER BY date_date DESC
